@@ -19,7 +19,7 @@ function Login() {
       if (state === "Login") {
         const { data } = await axios.post(`${backendUrl}/api/user/login`, {
           email,
-          passsword,
+          password,
         });
 
         if (data.success) {
