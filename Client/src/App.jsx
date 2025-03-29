@@ -7,6 +7,9 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Login from './components/Login'
 import { AppContext } from './context/AppContext'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+
 
 
 function App() {
@@ -22,6 +25,7 @@ function App() {
         <Route path='/buy' element={<BuyCredit />} />
       </Routes>
       <Footer />
+      <ToastContainer />
     </div>
   )
 }

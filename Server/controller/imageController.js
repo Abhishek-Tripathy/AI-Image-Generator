@@ -22,7 +22,7 @@ export const generateImage = async (req, res) => {
        }, responseType: 'arraybuffer'})
       
       const base64Image = Buffer.from(data, 'binary').toString("base64")
-      const resultImage = `data:image/png:base64,${base64Image}`
+      const resultImage = `data:image/png;base64,${base64Image}`
 
       await UserModel.findByIdAndUpdate(user._id, {creditBalance: user.creditBalance-1})
 
