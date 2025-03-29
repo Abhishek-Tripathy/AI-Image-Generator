@@ -1,4 +1,5 @@
-import logo from './logo.svg'
+import logo_wizardo_black from './logo_wizardo_black.svg'
+import logo_wizardo_white from './logo_wizardo_white.svg'
 import logo_icon from './logo_icon.svg'
 import facebook_icon from './facebook_icon.svg'
 import instagram_icon from './instagram_icon.svg'
@@ -20,7 +21,8 @@ import credit_star from './credit_star.svg'
 import profile_icon from './profile_icon.png'
 
 export const assets = {
-    logo,
+    logo_wizardo_white,
+    logo_wizardo_black,
     logo_icon,
     facebook_icon,
     instagram_icon,

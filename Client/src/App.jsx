@@ -11,12 +11,11 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
 
-
 function App() {
-  const { showLogin} = useContext(AppContext)
+  const { showLogin, theme} = useContext(AppContext)
 
   return (
-    <div className='px-4 sm:px-10 md:px-14 lg:px-28 min-h-screen bg-gradient-to-b from-teal-100 to-orange-100'>
+    <div className={`px-4 sm:px-10 md:px-14 lg:px-28 min-h-screen bg-gradient-to-b ${theme==='light'? "from-teal-100 to-orange-100" : "from-teal-900 to-orange-900" }`}>
       <Navbar />
       {showLogin && (<Login />)}
       <Routes>

@@ -10,6 +10,7 @@ const AppContextProvider = ({children}) => {
    const [showLogin, setShowLogin] = useState(false)
    const [token, setToken] = useState(localStorage.getItem('token'))
    const [credit, setCredit] = useState(false)
+   const [theme, setTheme] = useState('light')
    const backendUrl = import.meta.env.VITE_BACKEND_URL
    const navigate = useNavigate()
 
@@ -37,7 +38,7 @@ const AppContextProvider = ({children}) => {
       try {
          const {data} = await axios.post(backendUrl + "/api/image/generateImage", {prompt},{headers: {token}})
          console.log(data)
-         
+
          if(data.success) {
             loadCreditsData()
             return data.resultImage
@@ -54,14 +55,25 @@ const AppContextProvider = ({children}) => {
       }
    }  
 
+   const toggleTheme = () => {
+      const newTheme = theme === 'light' ? 'dark' : 'light';
+      setTheme(newTheme);
+      localStorage.setItem('theme', newTheme);
+    };
+
    useEffect(() => {
       if(token) {
          loadCreditsData()
       }
    }, [token])
 
+   useEffect(() => {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      setTheme(savedTheme);
+   }, [])
+
    return <AppContext.Provider value={{user, setUser, showLogin, setShowLogin, backendUrl, token, setToken,
-      credit, setCredit, loadCreditsData, logout, generateImage
+      credit, setCredit, loadCreditsData, logout, generateImage, toggleTheme, theme
    }}>
       {children}
    </AppContext.Provider>
